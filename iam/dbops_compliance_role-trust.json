@@ -1,0 +1,13 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "TrustJumpBoxOnly",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "JUMPBOX_ROLE_ARN"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}

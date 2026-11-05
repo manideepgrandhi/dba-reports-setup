@@ -1,0 +1,18 @@
+# Crontab for user dbareports. Install with: crontab -u dbareports this-file
+# Every line is commented out. Uncomment what you need after testing run_reports.sh by hand.
+
+# CRON_TZ=Asia/Kolkata
+# PATH=/usr/local/bin:/usr/bin:/bin
+# BASE=/opt/dba-reports
+
+# Daily reports at 06:00
+# 0 6 * * *   flock -n /tmp/dba-reports.lock $BASE/bin/run_reports.sh daily  >>$BASE/logs/cron.log 2>&1
+
+# Log check 30 minutes later
+# 30 6 * * *  flock -n /tmp/dba-reports-check.lock $BASE/bin/check_logs.sh >>$BASE/logs/cron.log 2>&1
+
+# Weekly inventory on Monday at 07:00
+# 0 7 * * 1   flock -n /tmp/dba-reports.lock $BASE/bin/run_reports.sh weekly >>$BASE/logs/cron.log 2>&1
+
+# Weekly log check
+# 30 7 * * 1  flock -n /tmp/dba-reports-check.lock $BASE/bin/check_logs.sh >>$BASE/logs/cron.log 2>&1

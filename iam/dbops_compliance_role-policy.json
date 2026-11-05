@@ -1,0 +1,45 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "RdsReadOnly",
+      "Effect": "Allow",
+      "Action": [
+        "rds:Describe*",
+        "rds:ListTagsForResource"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "DocdbNeptuneEngineVersions",
+      "Effect": "Allow",
+      "Action": [
+        "docdb:DescribeDBEngineVersions",
+        "neptune:DescribeDBEngineVersions"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "BackupReadOnly",
+      "Effect": "Allow",
+      "Action": [
+        "backup:ListBackupVaults",
+        "backup:ListRecoveryPointsByBackupVault",
+        "backup:ListBackupPlans",
+        "backup:GetBackupPlan",
+        "backup:ListProtectedResources"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AccountAndRegions",
+      "Effect": "Allow",
+      "Action": [
+        "sts:GetCallerIdentity",
+        "iam:ListAccountAliases",
+        "ec2:DescribeRegions"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

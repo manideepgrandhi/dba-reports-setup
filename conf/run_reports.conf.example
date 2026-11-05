@@ -1,0 +1,62 @@
+# run_reports.sh / check_logs.sh configuration (key = value; parsed, never sourced).
+# All entries are commented out. Uncomment to override the defaults shown in each comment.
+# Copy to /opt/dba-reports/conf/run_reports.conf (chmod 640).
+
+# --- paths (defaults match setup_jumpbox.sh)
+# base_dir = /opt/dba-reports
+# tools_dir = /opt/dba-reports/tools
+# output_dir = /opt/dba-reports/output
+# data_dir = /opt/dba-reports/data
+# logs_dir = /opt/dba-reports/logs
+# conf_dir = /opt/dba-reports/conf
+
+# --- AWS profiles (comma-separated). Required before any live run.
+# profiles = prod,nonprod
+
+# --- schedules: comma-separated report ids
+# daily reports (default: rds-patch-compliance,rds-backup-compliance)
+# daily = rds-patch-compliance,rds-backup-compliance
+# weekly reports (default: rds-inventory-explorer)
+# weekly = rds-inventory-explorer
+
+# --- per-report tool folder name under tools/ (defaults = report id)
+# tool.rds-patch-compliance = rds-patch-compliance
+# tool.rds-backup-compliance = rds-backup-compliance
+# tool.rds-inventory-explorer = rds-inventory-explorer
+
+# --- per-report script relative to tools/<tool>/current/
+# script.rds-patch-compliance = rds_patch_compliance_report.sh
+# script.rds-backup-compliance = rds_backup_compliance_report.sh
+# script.rds-inventory-explorer = rds_inventory_explorer.sh
+
+# --- extra CLI args appended after -P profiles -A -F ... -o ...
+# (defaults already pass -P, -A, -F html,csv, -o, --tz Asia/Kolkata, -l)
+# args.rds-patch-compliance =
+# args.rds-backup-compliance =
+# args.rds-inventory-explorer =
+# Also run the patch summary after the full patch report (default: yes)
+# patch_summary = yes
+# script.rds-patch-compliance-summary = rds_patch_compliance_summary.sh
+
+# --- common report options
+# formats = html,csv
+# all_regions = yes
+# tz = Asia/Kolkata
+# save_data = no
+
+# --- retention (OFF by default). Deletes only under output/ and logs/.
+# retention_days = 0
+# retention_logs_days = 0
+
+# --- mailx (no mail until alert_emails is set)
+# alert_emails = dba-team@example.com
+# alert_from = dbareports@example.com
+# mail_attach = no
+# mail_log_lines = 40
+# mail_subject_prefix = [dba-reports]
+
+# --- check_logs.sh
+# check_schedules = daily,weekly
+# check_lookback_hours = 26
+# check_mail_on_ok = no
+# check_error_patterns = ERROR|AccessDenied|ExpiredToken

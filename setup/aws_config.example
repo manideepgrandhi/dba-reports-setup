@@ -1,0 +1,34 @@
+# Place this as ~dbareports/.aws/config (chmod 640).
+# No credentials file. The jump box role (EC2 instance profile or Roles Anywhere)
+# assumes dbops_compliance_role in each account.
+# Every block below is commented out — uncomment what you need.
+
+# --- base credentials (pick one) ---
+# EC2 instance profile:
+# [profile base]
+# credential_source = Ec2InstanceMetadata
+# region = us-east-1
+
+# Roles Anywhere alternative:
+# [profile base]
+# credential_process = /opt/dba-reports/bin/roles_anywhere_cred_process
+# region = us-east-1
+
+# --- one profile per account ---
+# [profile prod]
+# role_arn = arn:aws:iam::111111111111:role/dbops_compliance_role
+# source_profile = base
+# region = us-east-1
+# duration_seconds = 3600
+
+# [profile nonprod]
+# role_arn = arn:aws:iam::222222222222:role/dbops_compliance_role
+# source_profile = base
+# region = us-east-1
+# duration_seconds = 3600
+
+# [profile dr]
+# role_arn = arn:aws:iam::333333333333:role/dbops_compliance_role
+# source_profile = base
+# region = us-east-1
+# duration_seconds = 3600
