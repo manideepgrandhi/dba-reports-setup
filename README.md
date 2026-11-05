@@ -77,8 +77,6 @@ Each run writes `logs/run_<schedule>_<YYYYMMDD_HHMMSS>.log`, prints every output
 |--------|---------|
 | `rds:Describe*` | All three tools (clusters, instances, snapshots, globals, engine versions, parameters, certificates, pending maintenance, …) |
 | `rds:ListTagsForResource` | Reserved (tags today come inside Describe responses) |
-| `docdb:DescribeDBEngineVersions` | Patch (DocumentDB engine lookup) |
-| `neptune:DescribeDBEngineVersions` | Patch (Neptune engine lookup) |
 | `backup:ListBackupVaults` | Backup |
 | `backup:ListRecoveryPointsByBackupVault` | Backup |
 | `backup:ListBackupPlans` | Reserved for other / future reports |

@@ -11,15 +11,6 @@
       "Resource": "*"
     },
     {
-      "Sid": "DocdbNeptuneEngineVersions",
-      "Effect": "Allow",
-      "Action": [
-        "docdb:DescribeDBEngineVersions",
-        "neptune:DescribeDBEngineVersions"
-      ],
-      "Resource": "*"
-    },
-    {
       "Sid": "BackupReadOnly",
       "Effect": "Allow",
       "Action": [
